@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  node-server:
+    build: .
+    container_name: node-server
+  nginx-node-server:
+    container_name: nginx-node-server
+    build: nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - node-server
