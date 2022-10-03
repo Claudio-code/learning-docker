@@ -4,6 +4,11 @@ services:
   node-server:
     build: .
     container_name: node-server
+    networks:
+      - node-api-network
+    depends_on:
+      - node-server-api-mysql
+
   nginx-node-server:
     container_name: nginx-node-server
     build: nginx
@@ -11,3 +16,28 @@ services:
       - "8080:80"
     depends_on:
       - node-server
+      - node-server-api-mysql
+    networks:
+      - node-api-network
+
+  node-server-api-mysql:
+    image: mysql:8.0
+    container_name: node-server-api-mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - node_api_mysql:/var/lib/mysql
+      - ./mysql:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_DATABASE=fullcicle
+      - MYSQL_ROOT_PASSWORD=root
+    networks:
+      - node-api-network
+
+networks:
+  node-api-network:
+    driver: bridge
+
+volumes:
+  node_api_mysql:
+    driver: local
