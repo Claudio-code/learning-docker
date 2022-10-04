@@ -6,7 +6,7 @@ COPY main.go .
 
 RUN go build main.go
 
-FROM alpine:3.16.2
+FROM scratch
 
 COPY --from=builder /builder/main /main
 
