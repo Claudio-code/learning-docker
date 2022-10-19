@@ -4,6 +4,7 @@ services:
   node-server:
     build: .
     container_name: node-server
+    entrypoint: dockerize -wait tcp://node-server-api-mysql:3306 -timeout 20s node index.js
     networks:
       - node-api-network
     depends_on:

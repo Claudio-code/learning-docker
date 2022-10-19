@@ -32,8 +32,6 @@ const server = express();
 server.use(express.json());
 server.use(cors());
 
-setTimeout(() => {
-  getNames();
-}, 300);
+setTimeout(getNames, 300);
 server.use(router);
 server.listen(3000);
