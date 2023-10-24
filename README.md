@@ -3,19 +3,16 @@
 </h3>
 
 
-- It project has used to learning about docker in different stacks.
+## Dockerfile Glossary
 
-## PHP
-```bash
-    docker run -p 8000:8000 claudio2424/laravel:1.0
-```
+**ADD**: Command used in Dockerfile to copy files and folders to container.
 
-## Nodejs
-```bash
-    cd nodejs && docker-compose up -d
-```
+**CMD**: Command used in Dockerfile to specify default command to execute when start container.
 
-## Golang
-```bash
-    docker run claudio2424/golang:2.0
-```
+**COPY**: Command used in Dockerfile to copy files and folders to container.
+
+**ENTRYPOINT**: Command used in Dockerfile to specify default command to execute when start container, but can't be replaced when start container.
+
+**ENV**: Command used in Dockerfile to define environment variables what will be in container build and running.
+
+**EXPOSE**: 
