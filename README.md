@@ -30,3 +30,13 @@
 **VOLUME**: Command used in Dockerfile to define volume mount point, allowed data share between host and container.
 
 **WORKDIR**: Command used in Dockerfile do define work directory in container, where command will be executed.
+
+---
+
+## Timeline: build docker image
+
+1. **Create Dockerfile**: First pass in build docker image is create Dockerfile. It file contain necessary instructions to build image, with base choice, dependency installation and environment configuration.
+
+2. **Build image**: After create Dockerfile is necessary execute command `docker build` to start build image process. At that time docker will read Dockerfile and compile image according to specify in file.
+
+3. **Tag image**: After finish build is possible add tags in image to facility identification and versioning. Example can add tag indicating application version or destiny environment.
